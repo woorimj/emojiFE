@@ -33,7 +33,7 @@ function LogoutScreen({navigation}) {
     } else {
       axios
         .post(
-          'http://ec2-54-180-144-230.ap-northeast-2.compute.amazonaws.com:8080/v1/users/login',
+          'http://localhost:8080/v1/login',
           {
             email: email,
             password: password,
