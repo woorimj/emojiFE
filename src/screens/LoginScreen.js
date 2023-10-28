@@ -21,11 +21,9 @@ import {
 
 import axios from 'axios';
 
-
-function LogoutScreen({navigation}) {  
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
+function LogoutScreen({navigation}) {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   function login() {
     if (email.trim() == '') {
@@ -35,7 +33,7 @@ function LogoutScreen({navigation}) {
     } else {
       axios
         .post(
-          'http://localhost:8080/v1/users/login',
+          'http://ec2-54-180-144-230.ap-northeast-2.compute.amazonaws.com:8080/v1/users/login',
           {
             email: email,
             password: password,
@@ -50,7 +48,8 @@ function LogoutScreen({navigation}) {
           console.log(resp.data.result.token);
           AsyncStorage.setItem('token', resp.data.result.token);
           navigation.navigate('TabNav');
-        }).catch(error => {
+        })
+        .catch(error => {
           console.error('API 요청 에러:', error);
         });
     }
@@ -60,7 +59,10 @@ function LogoutScreen({navigation}) {
     <View style={styles.container}>
       <View style={styles.topArea}>
         <View style={styles.titleArea}>
-          <Image source={require('../assest/images/emojipot_logo.png')} style={{width: 400, height: 300, resizeMode: 'contain'}} />
+          <Image
+            source={require('../assest/images/emojipot_logo.png')}
+            style={{width: 400, height: 300, resizeMode: 'contain'}}
+          />
         </View>
       </View>
 
@@ -78,10 +80,8 @@ function LogoutScreen({navigation}) {
           placeholderTextColor="#003f5c"
           onChangeText={password => setPassword(password)}
           value={password}
-
           secureTextEntry={true}
-          />
-
+        />
       </View>
 
       <View style={{flex: 0.75}}>
@@ -119,7 +119,7 @@ const styles = StyleSheet.create({
   },
   Text: {
     fontSize: wp('6%'),
-    color:'black',
+    color: 'black',
   },
   TextValidation: {
     fontSize: wp('4%'),

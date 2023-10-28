@@ -4,7 +4,7 @@ import {StyleSheet, View, Text, Image, Button, Linking} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-
+import UnityView from '@azesmway/react-native-unity';
 import {enableScreens} from 'react-native-screens';
 enableScreens();
 
@@ -20,6 +20,7 @@ import PostCreateScreen from './screens/PostCreateScreen';
 import GoogleMapUpdate from './screens/GoogleMapUpdate';
 import CommentScreen from './screens/CommentScreen';
 import PostImageScreen from './screens/PostImageScreen';
+import Unity from './screens/Unity';
 
 const Stack = createStackNavigator();
 
@@ -65,7 +66,7 @@ function App() {
           options={{
             title: '',
             headerBackTitleVisible: false,
-            headerLeft: () => null, 
+            headerLeft: () => null,
             headerShown: false,
           }}
         />
